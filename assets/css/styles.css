@@ -82,9 +82,6 @@ a:hover { text-decoration: underline; }
   border-radius: 16px; 
   padding: 24px;
   transition: transform 0.2s, border-color 0.2s;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 }
 .card:hover {
   transform: translateY(-2px);
@@ -98,13 +95,11 @@ a:hover { text-decoration: underline; }
 .card p { 
   color: var(--muted);
   line-height: 1.6;
-  flex-grow: 1;
 }
 .card a {
   display: inline-block;
   margin-top: 12px;
   font-weight: 500;
-  align-self: flex-start;
 }
 .footer { 
   color: var(--muted); 
