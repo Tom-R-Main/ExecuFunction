@@ -132,6 +132,7 @@ input[type="email"] {
 input[type="email"]:focus {
   outline: none;
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(29, 211, 176, 0.1);
 }
 button { 
   padding: 14px 20px; 
