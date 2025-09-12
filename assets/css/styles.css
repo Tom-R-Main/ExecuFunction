@@ -52,10 +52,17 @@ a:hover { text-decoration: underline; }
 .hero h1 { 
   font-size: 48px; 
   margin: 0 0 20px;
-  background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 50%, var(--fg) 100%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 .hero p { 
   color: var(--muted); 
