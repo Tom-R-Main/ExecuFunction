@@ -1,0 +1,31 @@
+# Codex CLI local settings (edit and restart the session to apply)
+# Not all runners read every key; unsupported keys are ignored safely.
+
+version: 1
+
+assistant:
+  tone: concise           # concise | friendly | formal
+  verbosity: 3            # 1=minimal … 10=very detailed
+  preambles: true         # brief notes before tool calls
+  plans:
+    enabled: true         # use the plan tool for multi-step tasks
+    auto: smart           # never | smart | always
+
+execution:
+  approvals: on-request   # untrusted | on-failure | on-request | never
+  filesystem: workspace-write   # read-only | workspace-write | danger-full-access
+  network: restricted     # restricted | enabled
+  confirm_destructive: true
+
+shell:
+  default_timeout_ms: 120000
+  workdir: .
+  escalate_on_failure: false   # retry with escalated perms if sandbox blocks
+
+output:
+  headers: true          # section headers when helpful
+  bullets: true          # bullet style lists
+  monospace: true        # backticks for commands/paths
+
+# You can override behavior per task by adding a `.codex/overrides.md` prompt.
+

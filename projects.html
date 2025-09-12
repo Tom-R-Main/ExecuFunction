@@ -19,27 +19,35 @@
       </nav>
 
       <section>
-        <h1>Projects</h1>
-        <p class="muted">Live, curl‑able endpoints that mirror our product architecture.</p>
+        <h1>Demos</h1>
+        <p class="muted">Small, honest proofs of the system—each returns JSON you can curl. These are building blocks for WinonaOS.</p>
 
-        <div class="grid" id="calendar">
-          <div class="card">
-            <h3>Calendar: next‑3</h3>
-            <p class="muted">Demo using ICS feed (no OAuth). Add STATIC_ICS_URL in SWA settings to point to your calendar.</p>
+        <div class="grid">
+          <div class="card" id="calendar">
+            <h3>Calendar orchestration (next-3)</h3>
+            <p class="muted">Returns the next three events. Works with a demo ICS feed today; tokenized calendar later.</p>
             <pre class="code">curl https://www.execufunction.com/api/calendar/next3</pre>
           </div>
-          <div class="card" id="context">
-            <h3>Context composer</h3>
-            <p class="muted">Compact envelope for downstream tools.</p>
-            <pre class="code">curl https://www.execufunction.com/api/context/envelope</pre>
+          <div class="card" id="rituals">
+            <h3>Ritual logging (2-minute check-in)</h3>
+            <p class="muted">A tiny endpoint that records a short check-in. No-store on transit; minimal fields at rest.</p>
+            <pre class="code">curl -X POST https://www.execufunction.com/api/rituals/log \
+  -H "Content-Type: application/json" \
+  -d '{"mood":"ok","note":"wrapped standup"}'</pre>
           </div>
           <div class="card" id="tasks">
-            <h3>Tasks (owner‑only)</h3>
-            <p class="muted">Endpoints planned; owner checks enforced server‑side.</p>
+            <h3>Tasks: ready list</h3>
+            <p class="muted">Minimal task entity with an optional "next action" and predictable filters (ready/waiting/all).</p>
             <pre class="code"># Coming soon
 curl -H "Authorization: Bearer &lt;jwt&gt;" \
-  https://www.execufunction.com/api/tasks?filter=ready</pre>
+  "https://www.execufunction.com/api/tasks?filter=ready"</pre>
           </div>
+        </div>
+
+        <div class="card" id="context" style="margin-top: 2rem;">
+          <h3>Context clipboard (under the hood)</h3>
+          <p class="muted">Technical demo: Returns a compact JSON envelope with calendar events and system state. Used internally by WinonaOS.</p>
+          <pre class="code">curl https://www.execufunction.com/api/context/envelope</pre>
         </div>
       </section>
 

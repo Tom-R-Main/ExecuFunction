@@ -19,33 +19,57 @@
       </nav>
 
       <section>
-        <h1>Architecture & Trade‑offs</h1>
-        <p class="muted">Azure‑first, multicloud‑legible. Security‑first endpoints and budget discipline.</p>
+        <h1>How it works</h1>
+        <p class="muted">Executive Function runs on Azure Static Web Apps with small Azure Functions behind it. We keep data minimal (email for waitlist; short entries for rituals and tasks). Endpoints that touch personal info are marked no-store so they aren't cached by browsers or proxies. Certificates and HTTPS are managed automatically.</p>
+        
         <div class="card">
-          <h3>Topology</h3>
-          <p class="muted">SWA (global CDN) → Azure Functions → (optional) Azure Table Storage.</p>
+          <h3>Hosting & APIs</h3>
+          <p class="muted">SWA (global CDN) → Azure Functions → Azure Table Storage</p>
           <ul>
-            <li>Static Web Apps ≈ Firebase Hosting</li>
-            <li>Azure Functions ≈ Cloud Functions</li>
-            <li>(Optional) Azure Container Apps ≈ Cloud Run</li>
+            <li>Static site with automatic HTTPS and global edge delivery</li>
+            <li>Serverless functions that scale to zero when idle</li>
+            <li>Minimal data storage for waitlist, rituals, and tasks</li>
           </ul>
         </div>
+        
         <div class="card">
-          <h3>Security stance</h3>
+          <h3>Privacy & Safety</h3>
           <ul>
-            <li>POST for auth starts (when added), persistent server‑side state</li>
-            <li>Cache‑control: no‑store on all /api/* responses</li>
-            <li>Owner‑only access patterns for tasks</li>
+            <li>POST for auth flows (when added), persistent server-side state</li>
+            <li>Cache-control: no-store on all /api/* responses</li>
+            <li>Owner-only access patterns for personal data</li>
+            <li>Minimal data collection, deletable on request</li>
           </ul>
         </div>
+        
         <div class="card">
-          <h3>Cost envelope</h3>
+          <h3>Lightweight & scalable</h3>
           <ul>
-            <li>Free SWA tier for marketing site</li>
-            <li>Functions scale‑to‑zero</li>
-            <li>Context payload capped to ~1 KB</li>
+            <li>Free SWA tier handles thousands of users</li>
+            <li>Functions scale to zero (pay only when used)</li>
+            <li>Tiny payloads (~1KB) keep costs minimal</li>
+            <li>No heavy frameworks or unnecessary complexity</li>
           </ul>
         </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <h3>Roadmap</h3>
+          <ul>
+            <li><strong>ADHD first</strong> — calendar orchestration, next-step tasks, and two-minute ritual check-ins</li>
+            <li><strong>Next cohorts</strong> — adapting for brain injury, autism, and addiction (with clinician input)</li>
+            <li><strong>Agentic loops</strong> — safer, time-boxed "do this for me" flows that propose the next step</li>
+          </ul>
+        </div>
+
+        <details style="margin-top: 2rem;">
+          <summary style="cursor: pointer; color: var(--muted);">For engineers: multicloud mapping</summary>
+          <ul style="margin-top: 1rem;">
+            <li>Azure Static Web Apps ≈ Firebase Hosting / AWS Amplify</li>
+            <li>Azure Functions ≈ Cloud Functions / Lambda</li>
+            <li>Azure Table Storage ≈ Firestore / DynamoDB</li>
+            <li>Azure Container Apps ≈ Cloud Run / App Runner</li>
+          </ul>
+        </details>
       </section>
 
       <footer class="footer">
