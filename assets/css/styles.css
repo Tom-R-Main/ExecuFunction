@@ -75,6 +75,7 @@ a:hover { text-decoration: underline; }
   gap: 20px; 
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   margin-top: 40px; 
+  align-items: stretch;
 }
 .card { 
   background: rgba(255,255,255,0.03); 
@@ -82,6 +83,8 @@ a:hover { text-decoration: underline; }
   border-radius: 16px; 
   padding: 24px;
   transition: transform 0.2s, border-color 0.2s;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 .card:hover {
   transform: translateY(-2px);
