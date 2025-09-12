@@ -87,8 +87,9 @@ a:hover { text-decoration: underline; }
   grid-template-rows: auto 1fr auto;
 }
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: rgba(29, 211, 176, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .card h3 { 
   margin: 0 0 12px; 
@@ -102,6 +103,7 @@ a:hover { text-decoration: underline; }
 .card a {
   display: inline-block;
   margin-top: 12px;
+  margin-bottom: 4px;
   font-weight: 500;
 }
 .footer { 
