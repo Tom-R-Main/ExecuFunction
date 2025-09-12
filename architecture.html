@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Architecture — Executive Function</title>
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">Executive Function</a>
+        <div class="links">
+          <a href="/projects.html">Projects</a>
+          <a href="/architecture.html">Architecture</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+        </div>
+      </nav>
+
+      <section>
+        <h1>Architecture & Trade‑offs</h1>
+        <p class="muted">Azure‑first, multicloud‑legible. Security‑first endpoints and budget discipline.</p>
+        <div class="card">
+          <h3>Topology</h3>
+          <p class="muted">SWA (global CDN) → Azure Functions → (optional) Azure Table Storage.</p>
+          <ul>
+            <li>Static Web Apps ≈ Firebase Hosting</li>
+            <li>Azure Functions ≈ Cloud Functions</li>
+            <li>(Optional) Azure Container Apps ≈ Cloud Run</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Security stance</h3>
+          <ul>
+            <li>POST for auth starts (when added), persistent server‑side state</li>
+            <li>Cache‑control: no‑store on all /api/* responses</li>
+            <li>Owner‑only access patterns for tasks</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Cost envelope</h3>
+          <ul>
+            <li>Free SWA tier for marketing site</li>
+            <li>Functions scale‑to‑zero</li>
+            <li>Context payload capped to ~1 KB</li>
+          </ul>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© Executive Function</span>
+      </footer>
+    </div>
+  </body>
+  </html>
+

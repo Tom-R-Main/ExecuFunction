@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Executive Function</title>
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">Executive Function</a>
+        <div class="links">
+          <a href="/projects.html">Projects</a>
+          <a href="/architecture.html">Architecture</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+        </div>
+      </nav>
+
+      <section>
+        <h1>Projects</h1>
+        <p class="muted">Live, curl‑able endpoints that mirror our product architecture.</p>
+
+        <div class="grid" id="calendar">
+          <div class="card">
+            <h3>Calendar: next‑3</h3>
+            <p class="muted">Demo using ICS feed (no OAuth). Add STATIC_ICS_URL in SWA settings to point to your calendar.</p>
+            <pre class="code">curl https://www.execufunction.com/api/calendar/next3</pre>
+          </div>
+          <div class="card" id="context">
+            <h3>Context composer</h3>
+            <p class="muted">Compact envelope for downstream tools.</p>
+            <pre class="code">curl https://www.execufunction.com/api/context/envelope</pre>
+          </div>
+          <div class="card" id="tasks">
+            <h3>Tasks (owner‑only)</h3>
+            <p class="muted">Endpoints planned; owner checks enforced server‑side.</p>
+            <pre class="code"># Coming soon
+curl -H "Authorization: Bearer &lt;jwt&gt;" \
+  https://www.execufunction.com/api/tasks?filter=ready</pre>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© Executive Function</span>
+      </footer>
+    </div>
+  </body>
+  </html>
+

@@ -1,0 +1,12 @@
+{
+  "name": "execufunction-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Azure Functions for Executive Function site",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "dependencies": {
+    "@azure/data-tables": "^13.2.2"
+  }
+}
+
