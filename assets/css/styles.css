@@ -36,10 +36,12 @@ a:hover { text-decoration: underline; }
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .nav a.brand { 
-  font-family: 'Comfortaa', cursive;
-  font-weight: 700; 
-  color: var(--fg); 
-  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.nav .logo {
+  height: 32px;
+  width: auto;
 }
 .nav .links a { 
   color: var(--muted); 
