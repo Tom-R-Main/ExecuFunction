@@ -28,6 +28,10 @@
           on the rhythms of your day.
           Starting with ADHD. Expanding to support other conditions that affect executive function.
         </p>
+        <div class="hero-actions">
+          <a href="/contact.html" class="btn btn-primary">Join waitlist</a>
+          <button id="contact-btn" class="btn btn-secondary">Contact</button>
+        </div>
         <div class="grid">
           <div class="card">
             <h3>What's next on your calendar</h3>
@@ -51,5 +55,22 @@
         <span>© Executive Function</span>
       </footer>
     </div>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <button id="close-modal" class="modal-close" aria-label="Close">&times;</button>
+        <h2>Get in touch</h2>
+        <p class="muted">Questions, ideas, or want to help? We'd love to hear from you.</p>
+        <form id="contact-form">
+          <input type="email" id="contact-email" placeholder="your@email.com" required />
+          <textarea id="contact-message" placeholder="How can we help? What would you like to know?" rows="4" required></textarea>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <small id="contact-msg" class="muted"></small>
+        </form>
+      </div>
+    </div>
+
+    <script src="/assets/js/main.js"></script>
   </body>
   </html>
