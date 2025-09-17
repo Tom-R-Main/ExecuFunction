@@ -15,3 +15,5 @@ steps:
       ]
 images:
   - us-central1-docker.pkg.dev/$PROJECT_ID/exf-repo/exf-app:$COMMIT_SHA
+options:
+  logging: CLOUD_LOGGING_ONLY
