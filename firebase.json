@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "site": "execufunctionfb",
+    "public": "public/execufunction",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "headers": [
+      { "source": "/api/**",
+        "headers": [
+          {"key":"Cache-Control","value":"no-store, no-cache, must-revalidate, private"},
+          {"key":"Pragma","value":"no-cache"}
+        ]
+      },
+      { "source": "**",
+        "headers": [
+          {"key":"Strict-Transport-Security","value":"max-age=31536000; includeSubDomains; preload"},
+          {"key":"X-Content-Type-Options","value":"nosniff"},
+          {"key":"X-Frame-Options","value":"DENY"},
+          {"key":"Referrer-Policy","value":"strict-origin-when-cross-origin"},
+          {"key":"Permissions-Policy","value":"geolocation=(), microphone=(), camera=()"}
+        ]
+      }
+    ],
+    "rewrites": [
+      { "source": "/api/**", "run": { "serviceId": "exf-api", "region": "us-central1" } }
+    ]
+  }
+}
