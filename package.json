@@ -1,15 +1,14 @@
 {
-  "name": "exf-api",
-  "version": "1.0.0",
-  "description": "API for Executive Function AI",
-  "main": "server.js",
-  "type": "module",
+  "name": "execufunction",
+  "private": true,
+  "workspaces": [
+    "exf-app"
+  ],
   "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.19.2",
-    "express-rate-limit": "^7.2.0",
-    "pg": "^8.11.5"
+    "build": "npm run build --workspace exf-app",
+    "start": "npm run start --workspace exf-app",
+    "start:dev": "npm run start:dev --workspace exf-app",
+    "lint": "npm run lint --workspace exf-app",
+    "test": "npm test --workspace exf-app"
   }
 }

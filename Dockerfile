@@ -1,27 +1,36 @@
-# Use Node.js 20 Alpine for smaller image size
-FROM node:20-alpine
+# syntax=docker/dockerfile:1
 
-# Set working directory
+FROM node:20-bullseye AS build
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy workspace manifests first for better caching
+COPY package.json package-lock.json ./
+COPY exf-app/package.json exf-app/package.json
 
-# Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
-# Copy application files
-COPY server.js ./
-COPY migrations ./migrations
-COPY public ./public
+# Copy source code
+COPY exf-app/ exf-app/
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001
-USER nodejs
+# Build workspace
+RUN npm run build --workspace exf-app
 
-# Expose port 8080 (Cloud Run default)
+# Prune dev dependencies for production image
+RUN npm prune --omit=dev
+
+FROM node:20-bullseye-slim
+WORKDIR /app
+ENV NODE_ENV=production
+
+# Copy package manifests to install runtime deps
+COPY package.json package-lock.json ./
+COPY exf-app/package.json exf-app/package.json
+
+# Install only production dependencies
+RUN npm ci --omit=dev --workspace exf-app
+
+# Copy build artifacts
+COPY --from=build /app/exf-app/dist exf-app/dist
+
 EXPOSE 8080
-
-# Start the application
-CMD ["node", "server.js"]
+CMD ["node", "exf-app/dist/server.js"]
